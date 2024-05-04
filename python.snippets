@@ -1,0 +1,82 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+
+
+snippet  simpimport
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import curve_fit
+
+#from scipy.stats import chi2
+
+import scipy.stats as scipstats
+
+from scipy import signal as sp
+
+import math as m
+
+
+from scipy.odr import ODR, Model, Data, RealData
+from random import gauss as ga
+
+import pickle as pick
+
+import random
+
+
+from random import gauss
+
+endsnippet
+
+
+snippet singFig
+
+mainplotFigure = plt.figure()
+
+mp = mainplotFigure.add_axes([0,0,1,1])
+
+mp.set_xlabel(r'')
+mp.set_ylabel(r')')
+
+mp.plot(xx, tt, ls='', marker = 'o', color = 'green', label = 'Experimental Data')
+
+mp.ticklabel_format(style='sci',useMathText = True)
+
+#mainplotFigure.savefig("figname.jpg", bbox_inches='tight', dpi = mainplotFigure.dpi)
+
+endsnippet
+
+
+snippet lambfunc
+x = lambda a,b: a*b
+endsnippet
+
+snippet numpyLoad
+= np.loadtxt( ${0:${VISUAL}} )
+endsnippet

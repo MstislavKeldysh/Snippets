@@ -1,0 +1,377 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+
+
+snippet singFig
+
+\FloatBarrier
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width = 1 \textwidth]{Images/${0:${VISUAL}}}
+\caption{}\label{fig:}
+\end{center}
+\end{figure}\FloatBarrier
+endsnippet
+
+snippet multiFig
+
+\FloatBarrier
+\begin{figure}[H]
+\begin{center}
+%
+\begin{subfigure}[b]{0.48 \textwidth}
+\includegraphics[width = 1\textwidth]{Images/${0:${VISUAL}}}
+\caption{}\label{fig:}
+\end{subfigure}\hfill %
+%
+\caption{}\label{fig:}
+%
+\end{center}
+\end{figure}\FloatBarrier
+endsnippet
+
+snippet wrapfig
+\FloatBarrier
+\begin{wrapfigure}[20]{R}{4 cm}
+\begin{center}
+\includegraphics[ width = 1 \textwidth]{Images/${0:${VISUAL} }}
+\caption{}\label{fig:}
+\end{center}
+\end{wrapfigure}\FloatBarrier
+endsnippet
+
+snippet subfig
+
+\begin{subfigure}[b]{0.48 \textwidth}
+\includegraphics[width = 1\textwidth]{Images/${0:${VISUAL}}} 
+\caption{}\label{fig:}
+\end{subfigure}\hfill %
+endsnippet
+
+snippet spel
+setlocal spell
+endsnippet
+
+snippet ftsize
+\footnotesize
+endsnippet
+
+
+snippet linguistics
+\usepackage[linguistics]{forest}
+endsnippet
+
+snippet lingdraw
+\draw[-stealth,dotted] (${0:${VISUAL}}) to[out = south, in = south] ();
+endsnippet
+
+
+snippet branchLing 
+[ ${0:${VISUAL}}
+	[  \\\\  ]
+	[
+	]
+]
+endsnippet
+
+snippet mtimes
+$\times$
+endsnippet
+
+
+
+snippet genPre
+\input{D:/1.UofT/0.LaTeX Preambles/GeneralPreamble.tex}
+
+endsnippet
+
+snippet preBody
+\input{D:/1.UofT/0.LaTeX Preambles/PreambleBody.tex}
+endsnippet
+
+snippet preHeader
+\documentclass[10pt,letterpaper,final]{article}
+\usepackage[margin=1.5 cm]{geometry}
+endsnippet
+
+snippet fancyhdr
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+
+\lhead{${15:${VISUAL} } }
+
+\rhead{\thepage }
+
+\fancypagestyle{plain}{
+
+\lhead{${15:${VISUAL} }  }
+
+\rhead{\thepage } }
+
+\usepackage[para,bottom]{footmisc}
+endsnippet
+
+
+
+snippet typewriterFont
+\input{D:/1.UofT/0.LaTeX Preambles/TypewriterFont.tex}
+endsnippet
+
+snippet transPre
+\input{D:/1.UofT/4.0 PhySU/Templates/TransitionSheets/Sample/0Preamble.tex}
+
+endsnippet
+
+
+
+snippet linkcol
+\textcolor{cyan}{${0:${VISUAL} }}
+endsnippet
+
+
+snippet seeSnips
+CocCommand snippets.editSnippets
+endsnippet
+
+snippet beg
+\begin{$10}
+${0:${VISUAL}}
+\end{$10}
+endsnippet
+
+snippet \fr "fraction" A
+\frac{$0}{}
+endsnippet
+
+snippet \sqrt "square root" A
+\sqrt{$0}
+endsnippet
+
+snippet \lbra "brackets" A
+\left ( ${0:${VISUAL}} \right ) 
+endsnippet
+
+snippet \sqbra "square brackets" A
+\left [ ${0:${VISUAL}} \right ]
+endsnippet
+
+snippet texr
+%!Tex Root =**$0
+endsnippet
+
+
+snippet wrapWords
+
+:setlocal wrap linebreak
+
+endsnippet
+
+
+snippet tripleSubInit
+\usepackage{titlesec}
+\input{D:/1.UofT/0.LaTeX Preambles/Subsubsub.tex}
+endsnippet
+
+
+snippet iminput
+\input{Images/${0:${VISUAL}}}
+endsnippet
+
+
+snippet verb
+\verb|$0|
+endsnippet
+
+
+snippet tabul
+\FloatBarrier
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|P{2cm}|P{2cm}| }
+\hline
+XXXX & XXXX \\ \hline  ${0:${VISUAL}}
+
+\end{tabular}
+\end{center}
+\end{table}\FloatBarrier
+endsnippet
+
+
+snippet transitionSheet
+
+\begin{landscape}
+\FloatBarrier
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{|P{2cm}|P{2cm}| }
+\hline
+\rowcolor{gray!25} Transition & XXX\\\\ \hline
+List of Items to do  & XXX \\\\ \hline
+${0:${VISUAL}}
+
+
+\end{tabular}
+\end{center}
+\end{table}\FloatBarrier
+\end{landscape}
+endsnippet
+
+
+snippet titemize
+{ \scriptsize
+\begin{itemize}[leftmargin=*]
+\item ${0:${VISUAL}}
+\end{itemize}
+}
+endsnippet
+
+snippet scibib
+\usepackage[style=numeric,autolang=other, bibencoding =utf8,backend=biber,url=true,natbib,giveninits=true,language=auto,sorting=none]{biblatex}
+\addbibresource{ ${1:${VISUAL}} }
+endsnippet
+
+snippet bibEntry
+@book{ $0,
+title={     },
+author={ LastName, Name },
+volume={ },
+year={  },
+publisher={},
+}
+endsnippet
+
+
+snippet chicbib
+\usepackage[notes,backend=biber, dashed=false]{biblatex-chicago}
+\addbibresource{ ${1:${VISUAL}} }
+endsnippet
+
+
+snippet bpre
+\documentclass[10pt,letterpaper,final]{article}
+\usepackage[margin=1.5 cm]{geometry}
+\usepackage{wrapfig}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{amsmath}[fleqn]
+endsnippet
+
+snippet beamerUofT
+\input{D:/1.UofT/0.LaTeX Preambles/UofTBeamer.tex}
+
+\usefonttheme[onlymath]{serif}
+
+\title[About Beamer]
+{About the Beamer class in presentation making}
+
+\subtitle{A short story}
+
+\author[Arthur, Doe] % (optional, for multiple authors)
+{A.~B.~Arthur\inst{1} \and J.~Doe\inst{2}}
+
+\institute[UofT] % (optional)
+{
+  \inst{1}%
+  Faculty of Physics\\
+  Very Famous University
+  \and
+  \inst{2}%
+  Faculty of Chemistry\\
+  Very Famous University
+}
+
+\date[ICLR 2023] % (optional)
+{ICLR, May 2023}
+
+%\logo{\includegraphics[height=0.8cm]{D:/1.UofT/UofTPhysicsDpt.jpeg}}
+endsnippet
+
+snippet frameBeamer
+\begin{frame}
+\frametitle{$0}
+
+\end{frame}
+endsnippet
+
+snippet blockBeamer
+\begin{textblock*}{10pt}($0pt, pt)
+\tiny
+
+\end{textblock*}
+endsnippet
+
+snippet bracetikz
+[decorate,decoration= {brace,amplitude = 9pt},xshift= ${1:${VISUAL}}  pt,yshift=0 pt]
+endsnippet
+
+
+
+snippet arcTikz
+\draw (1,0) arc (0:360:1);
+endsnippet
+
+snippet circTikz
+\filldraw[black] ($0) circle (1pt);
+endsnippet
+
+snippet mathTikz
+\tikzmath{%
+$0}
+endsnippet
+
+snippet scalingTikz
+[scale=0.6, every node/.style={scale=0.6}]
+endsnippet
+
+
+snippet packRussian
+\usepackage[T2A,T1,OT2]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,main=russian]{babel}
+endsnippet
+
+snippet foreignR
+\foreignlanguage{Russian}{$0 }
+endsnippet
+
+snippet glosEntry
+\newglossaryentry{${13:${VISUAL} }}{
+	type ={${13:${VISUAL} }},
+	name ={},
+	description = {  }	
+}
+endsnippet
+
+snippet newGlos
+\newglossary*{$0}{}
+endsnippet
