@@ -169,6 +169,13 @@ snippet \fr "fraction" A
 \frac{$0}{}
 endsnippet
 
+snippet \ref "reference/citation" A
+\ref{$0}
+endsnippet
+snippet (\ref "ref equation" A
+(\ref{eq:$0})
+endsnippet
+
 snippet \sqrt "square root" A
 \sqrt{$0}
 endsnippet
@@ -252,7 +259,7 @@ snippet titemize
 endsnippet
 
 snippet scibib
-\usepackage[style=numeric,autolang=other, bibencoding =utf8,backend=biber,url=true,natbib,giveninits=true,language=auto,sorting=none]{biblatex}
+\usepackage[style=numeric,autolang=other, bibencoding =utf8,backend=biber,url=true,natbib,giveninits=true,language=auto,sorting=none]{biblatex-ms}
 \addbibresource{ ${1:${VISUAL}} }
 endsnippet
 
@@ -290,10 +297,18 @@ snippet bpre
 \usepackage{amsmath}[fleqn]
 endsnippet
 
+snippet beamerBody
+\input{D:/1.UofT/0.LaTeX Preambles/BeamerBody.tex}
+endsnippet
+
+
 snippet beamerUofT
 \input{D:/1.UofT/0.LaTeX Preambles/UofTBeamer.tex}
 
 \usefonttheme[onlymath]{serif}
+\usepackage[absolute,overlay]{textpos}
+
+\input{D:/1.UofT/0.LaTeX Preambles/BeamerBody.tex}
 
 \title[About Beamer]
 {About the Beamer class in presentation making}
