@@ -139,8 +139,17 @@ endsnippet
 
 
 
+
 snippet typewriterFont
 \input{D:/1.UofT/0.LaTeX Preambles/TypewriterFont.tex}
+endsnippet
+
+snippet literaturnayaFont
+\input{D:/1.UofT/0.LaTeX Preambles/Font/LiteraturnayaFont.tex}
+endsnippet
+
+snippet akamedischeskiyFont
+\input{D:/1.UofT/0.LaTeX Preambles/Font/AkademicheskiyFont.tex}
 endsnippet
 
 snippet transPre
@@ -168,6 +177,7 @@ endsnippet
 snippet \fr "fraction" A
 \frac{$0}{}
 endsnippet
+
 
 snippet \ref "reference/citation" A
 \ref{$0}
@@ -200,11 +210,23 @@ snippet wrapWords
 endsnippet
 
 
+snippet newcommand 
+\newcommand{$0}[]{}
+endsnippet
+
+snippet newOptCommand
+\NewDocumentCommand{$0 }{ O{t} O{} O{} } { #1 #2 #3}
+endsnippet
+
 snippet tripleSubInit
 \usepackage{titlesec}
 \input{D:/1.UofT/0.LaTeX Preambles/Subsubsub.tex}
 endsnippet
 
+snippet eqnCounter 
+\renewcommand{\theequation}{$0 \arabic{equation}}
+\setcounter{equation}{0} 
+endsnippet
 
 snippet iminput
 \input{Images/${0:${VISUAL}}}
@@ -277,6 +299,9 @@ snippet genBibliography
 \addbibresource{D:/1.UofT/0.LaTeX Preambles/GeneralBibliography.bib}
 endsnippet
 
+snippet packageBibliography
+\addbibresource{D:/1.UofT/0.LaTeX Preambles/PackagesBibliography.bib}
+endsnippet
 
 snippet chicbib
 \usepackage[notes,backend=biber, dashed=false]{biblatex-chicago}
@@ -349,6 +374,19 @@ snippet blockBeamer
 \end{textblock*}
 endsnippet
 
+snippet looptikz
+\foreach \n in {0,1,...,10}{
+
+$0
+
+}
+endsnippet
+
+snippet plotTikz
+\draw[domain = $0: , smooth, variable = \t] plot ({},{});
+endsnippet
+
+
 snippet bracetikz
 [decorate,decoration= {brace,amplitude = 9pt},xshift= ${1:${VISUAL}}  pt,yshift=0 pt]
 endsnippet
@@ -367,7 +405,7 @@ $0}
 endsnippet
 
 snippet scalingTikz
-[scale=0.6, every node/.style={scale=0.6}]
+[scale=$4, every node/.style={scale=$4}]
 endsnippet
 
 

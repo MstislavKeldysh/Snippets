@@ -28,11 +28,81 @@ snippet length "length of list" A
 length($0)
 endsnippet
 
+snippet helpersInclude 
+include(raw"D:\\01.Me\\0. Code Helpers\\JuliaHelpers.jl")
+endsnippet
+
+snippet 1:length "length in for loops" A
+1:length($0)
+endsnippet
+
 snippet if "ifstatement" A
 if $0
 
 end
 endsnippet 
 
+snippet itThreads "Thread to iterate over stuff" 
+Threads.@threads 
+endsnippet
+
+snippet plotParams
+${10:${VISUAL}} = (dataLabels = -1 , ptitle=" ", xlab = " ", ylab = " ", aLegend=true) 
+${10:${VISUAL}} = (${10:${VISUAL}}..., vsType = "scat", logOption = [false,false], tickN = [5,5])
+${10:${VISUAL}} = (${10:${VISUAL}}..., plotColors = ColorSchemes.twelvebitrainbow)
+endsnippet
 
 
+snippet saveJLD 
+save( $0 *".jld" , "data", myData )
+endsnippet
+
+snippet loadJLD
+load($0  )["data"]
+endsnippet
+
+snippet longPreamble
+using LinearAlgebra
+import CSV
+using SciPy
+using Statistics
+
+using ColorSchemes
+using AlgebraOfGraphics
+using Makie
+#using MakieTeX
+using CairoMakie
+using DataFrames
+using LaTeXStrings
+using MathTeXEngine
+
+using LsqFit
+using JLD
+using Peaks
+
+using BlackBoxOptim
+using Optim
+
+using Optimization
+
+using OptimizationOptimJL
+
+using CMAEvolutionStrategy
+
+#using OptimizationCMAEvolutionStrategy
+
+using PyCall
+np = pyimport("numpy");
+endsnippet
+
+snippet shortPreamble
+using ColorSchemes
+using AlgebraOfGraphics
+using Makie
+#using MakieTeX
+using CairoMakie
+using DataFrames
+using LaTeXStrings
+using MathTeXEngine
+using JLD
+endsnippet
