@@ -44,8 +44,10 @@ snippet multiFig
 \begin{center}
 %
 \begin{subfigure}[b]{0.48 \textwidth}
+\begin{center}
 \includegraphics[width = 1\textwidth]{Images/${0:${VISUAL}}}
 \caption{}\label{fig:}
+\end{center}
 \end{subfigure}\hfill %
 %
 \caption{}\label{fig:}
@@ -421,7 +423,8 @@ snippet glosEntry
 \newglossaryentry{${13:${VISUAL} }}{
 	type ={${13:${VISUAL} }},
 	name ={},
-	description = {  }	
+	description = {  },
+	parent = {}
 }
 endsnippet
 
