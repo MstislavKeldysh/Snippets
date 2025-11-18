@@ -29,7 +29,7 @@ length($0)
 endsnippet
 
 snippet helpersInclude 
-include(raw"~/0. Workspace/01.Me/0. Code Helpers/JuliaHelpers.jl")   #D:\\01.Me\\0. Code Helpers\\JuliaHelpers.jl")
+include("/home/ivan/0.Workspace/01.Me/0. Code Helpers/JuliaHelpers.jl") #D:\\01.Me\\0. Code Helpers\\JuliaHelpers.jl")
 endsnippet
 
 snippet 1:length "length in for loops" A
@@ -42,6 +42,9 @@ if $0
 end
 endsnippet 
 
+
+
+
 snippet itThreads "Thread to iterate over stuff" 
 Threads.@threads 
 endsnippet
@@ -52,6 +55,26 @@ ${10:${VISUAL}} = (${10:${VISUAL}}..., vsType = "scat", logOption = [false,false
 ${10:${VISUAL}} = (${10:${VISUAL}}..., plotColours = ColorSchemes.twelvebitrainbow)
 endsnippet
 
+
+snippet plotHeat 
+func(x,y) = 1
+fig= Figure()
+ax, hm = heatmap(fig[1,1], xs,ys, func )
+cbar = Colorbar(fig[:, end+1], hm)
+#cbar.ticks[] = ([ j for j in 1:10] )
+#contour!(ax, xs,ys, fybc ; levels=4, color=:black, labels=true)
+endsnippet
+
+snippet plotHeatNonRectangular
+f, ax, tr = tricontourf(xs, ys, zs)
+scatter!(xs, ys, color = zs)
+Colorbar(f[1, 2], tr)
+endsnippet
+
+
+snippet savePlot
+save( ".png" , $0  )
+endsnippet
 
 snippet saveJLD 
 save( $0 *".jld" , "data", myData )

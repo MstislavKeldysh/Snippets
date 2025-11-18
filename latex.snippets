@@ -83,6 +83,27 @@ snippet ftsize
 endsnippet
 
 
+snippet krulPreOld
+\AtBeginDocument{%
+\setbox0=\vbox{\tikz \path[use Hobby shortcut,save Hobby path={krul}] (-.2,0.25) ..  (0,.45) .. (.2,.65) ..  (0.3,0.76) .. (0.4,.97) .. (.1,.8) .. (.05,.65) .. (.3,.5) .. (.3,.4) .. (.15,.1) .. (.15,.05) .. (.3,.05) .. (1,.7);}%
+}
+
+\newcommand{\krul}{%
+\tikz[scale=1em/1cm] \calligraphy[copperplate,restore and use Hobby path={krul}{}];%
+}
+endsnippet
+
+snippet krulPre
+\usetikzlibrary{calligraphy,hobby}
+\newcommand{\krul}{%
+\tikz[scale=1em/1cm] \calligraphy[copperplate, use Hobby shortcut ]  (-.2,0.25) ..  (0,.45) .. (.2,.65) ..  (0.3,0.76) .. (0.4,.97) .. (.1,.8) .. (.05,.65) .. (.3,.5) .. (.3,.4) .. (.15,.1) .. (.15,.05) .. (.3,.05) .. (1,.7);%
+}
+endsnippet
+
+snippet scaleBoxCommand
+\newcommand{\stiny}[1]{\scalebox{$0}{#1}}
+endsnippet
+
 snippet linguistics
 \usepackage[linguistics]{forest}
 endsnippet
@@ -105,7 +126,6 @@ $\times$
 endsnippet
 
 
-
 snippet genPre
 \input{/home/ivan/0.Workspace/1.UofT/0.LaTeX Preambles/GeneralPreamble.tex} %{D:/1.UofT/0.LaTeX Preambles/GeneralPreamble.tex}
 endsnippet
@@ -117,6 +137,57 @@ endsnippet
 snippet preHeader
 \documentclass[10pt,letterpaper,final]{article}
 \usepackage[margin=1.5 cm]{geometry}
+endsnippet
+
+snippet preApplication
+\documentclass[12pt,letterpaper,final]{article}
+\usepackage[margin=2.54 cm]{geometry}
+\usepackage{wrapfig}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{amsmath}[fleqn]
+\usepackage[shortlabels]{enumitem}
+
+\usepackage[version=4]{mhchem}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+
+
+\lhead{OGS Plan of Study}
+
+\rhead{Ivan Ovchinnikov }
+
+\fancypagestyle{plain}{
+
+\lhead{OGS Plan of Study}
+
+\rhead{Ivan Ovchinnikov } }
+
+\usepackage[para,bottom]{footmisc}
+
+
+endsnippet
+
+snippet \Appendix
+\renewcommand{\theHequation}{A\arabic{equation}}
+\renewcommand{\theequation}{A\arabic{equation}}
+\setcounter{equation}{0} 
+\setcounter{section}{0}
+\renewcommand{\theHsection}{A\Roman{section}}
+\renewcommand{\theHsubsection}{A\Roman{section}.\Roman{subsection}   }
+\renewcommand{\theHsubsubsection}{A\Roman{section}.\Roman{subsection}.\Roman{subsubsection}}
+\renewcommand{\thesection}{A\Roman{section}}
+\renewcommand{\thesubsection}{A\Roman{section}.\Roman{subsection}   }
+\renewcommand{\thesubsubsection}{A\Roman{section}.\Roman{subsection}.\Roman{subsubsection}}
+
+%\usepackage[style=numeric,autolang=other, bibencoding =utf8,backend=biber,url=true,natbib,giveninits=true,language=auto,sorting=none]{biblatex}
+%\addbibresource{/home/ivan/0.Workspace/1.UofT/0.LaTeX Preambles/Bibliographies/CondensedMatter/SpinLiquid.bib}
 endsnippet
 
 snippet fancyhdr
@@ -178,6 +249,17 @@ snippet \fr "fraction" A
 \frac{$0}{}
 endsnippet
 
+snippet \ket "ket" A
+\ket{$0}
+endsnippet
+
+snippet \bra "bra" A
+\bra{$0}
+endsnippet
+
+snippet \text "text" A
+\text{$0}
+endsnippet
 
 snippet \ref "reference/citation" A
 \ref{$0}
@@ -198,6 +280,10 @@ snippet \sqbra "square brackets" A
 \left [ ${0:${VISUAL}} \right ]
 endsnippet
 
+snippet \[ "mathMode" A
+\[ $0 \]
+endsnippet
+
 snippet texr
 %!Tex Root =**$0
 endsnippet
@@ -212,6 +298,10 @@ endsnippet
 
 snippet newcommand 
 \newcommand{$0}[]{}
+endsnippet
+
+snippet increaseCounter
+\newcommand{\printandincrease}[1]{\arabic{#1}\stepcounter{#1}}
 endsnippet
 
 snippet newOptCommand
@@ -281,7 +371,7 @@ snippet titemize
 endsnippet
 
 snippet scibib
-\usepackage[style=numeric,autolang=other, bibencoding =utf8,backend=biber,url=true,natbib,giveninits=true,language=auto,sorting=none]{biblatex-ms}
+\usepackage[style=numeric,autolang=other, bibencoding =utf8,backend=biber,url=true,natbib,giveninits=true,language=auto,sorting=none]{biblatex}
 \addbibresource{ ${1:${VISUAL}} }
 endsnippet
 
@@ -296,11 +386,15 @@ publisher={},
 endsnippet
 
 snippet genBibliography
-\addbibresource{/home/ivan/0.Workspace/1.UofT/0.LaTeX Preambles/GeneralBibliography.bib}%{D:/1.UofT/0.LaTeX Preambles/GeneralBibliography.bib}
+\addbibresource{/home/ivan/0.Workspace/1.UofT/0.LaTeX Preambles/GeneralBibliography.bib}%{/home/ivan/0.Workspace/1.UofT/0.LaTeX Preambles/Bibliographies/GeneralBibliography.bib}
 endsnippet
 
 snippet packageBibliography
-\addbibresource{/home/ivan/0.Workspace/1.UofT/0.LaTeX Preambles/PackagesBibliography.bib}%{D:/1.UofT/0.LaTeX Preambles/PackagesBibliography.bib}
+\addbibresource{/home/ivan/0.Workspace/1.UofT/0.LaTeX Preambles/PackagesBibliography.bib}%{/home/ivan/0.Workspace/1.UofT/0.LaTeX Preambles/BibliographiesPackagesBibliography.bib}
+endsnippet
+
+snippet bibliographyFolder
+\addbibresource{/home/ivan/0.Workspace/1.UofT/0.LaTeX Preambles/Bibliographies/$0}
 endsnippet
 
 snippet chicbib
@@ -320,6 +414,7 @@ snippet bpre
 \usepackage{amssymb}
 \usepackage{gensymb}
 \usepackage{amsmath}[fleqn]
+\usepackage[shortlabels]{enumitem}
 endsnippet
 
 snippet beamerBody
@@ -366,6 +461,25 @@ snippet frameBeamer
 
 \end{frame}
 endsnippet
+snippet enumBeamer
+\begin{center}
+\begin{minipage}[c]{0.6\textwidth}
+
+\begin{enumerate}[I)]
+\item $0
+
+\end{enumerate}
+
+\end{minipage}
+\end{center}
+endsnippet
+
+snippet \minipage
+\begin{minipage}[c]{0.6\textwidth}
+
+\end{minipage}
+endsnippet
+
 
 snippet blockBeamer
 \begin{textblock*}{10pt}($0pt, pt)
@@ -381,6 +495,22 @@ $0
 
 }
 endsnippet
+
+snippet \coordinate
+\coordinate ($0) at ( );
+endsnippet
+
+
+snippet rectangleTikz
+\draw[draw=black] ($0) rectangle ++ ( );
+endsnippet
+
+snippet cloopTikz
+\foreach\x[count=\xi from 0] in {1,...,3}{
+
+}
+endsnippet
+
 
 snippet plotTikz
 \draw[domain = $0: , smooth, variable = \t] plot ({},{});
@@ -408,6 +538,9 @@ snippet scalingTikz
 [scale=$4, every node/.style={scale=$4}]
 endsnippet
 
+snippet scaleBox
+\scalebox{0.4}{$0}
+endsnippet
 
 snippet packRussian
 \usepackage[T2A,T1,OT2]{fontenc}
@@ -420,14 +553,20 @@ snippet foreignR
 endsnippet
 
 snippet glosEntry
-\newglossaryentry{${13:${VISUAL} }}{
-	type ={${13:${VISUAL} }},
+\newglossaryentry{${13:${VISUAL}}:}{
+	type ={${13:${VISUAL}}},
 	name ={},
-	description = {  },
+	description = {\foreignlanguage{Russian}{}},
 	parent = {}
 }
 endsnippet
 
 snippet newGlos
 \newglossary*{$0}{}
+endsnippet
+
+
+snippet runBiberTectonic
+biblatex=$(kpsewhich biblatex.sty) biblatex=${biblatex%/*}
+tectonic -Z search-path="$biblatex" main.tex
 endsnippet
